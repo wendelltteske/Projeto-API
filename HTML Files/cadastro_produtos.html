@@ -5,8 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/CSS Files/cadastro_produtos.css" />
 </head>
 <body>
-    Olá, mundo!
+    <div class="tittle">
+        <h1>CADASTRO PRODUTOS</h1>
+    </div>
+    <hr>
+    <div class="container-geral">
+        <div class="container">
+            <label for="nome">Informe o nome do produto:</label>
+            <input id="nome" type="text" placeholder="Informe nome" />
+    
+            <label for="preco">Informe o preço do produto:</label>
+            <input id="preco" type="number" placeholder="Informe preço" />
+    
+            <label for="quantidade">Informe a quantidade do produto:</label>
+            <input id="quantidade" type="number" placeholder="Informe quantidade" />
+        </div>
+        <div class="btn">
+            <button onclick="salvar()">Salvar</button>
+            <button onclick="limpar()">Limpar Campos</button>
+        </div>
+    </div>
+
+    <script>
+        function salvar(){
+            const produtos = {
+                nome: "",
+                preco: "",
+                quantidade: ""
+            }
+
+            produtos.nome = document.getElementById("nome").value
+            produtos.preco = document.getElementById("preco").value
+            produtos.quantidade = document.getElementById("quantidade").value
+
+            if(document.getElementById("nome").value == ''){
+                alert("Para prosseguir o cadastro, informe o nome do produto!")
+                return
+            } else if(document.getElementById("preco").value == ''){
+                alert("Para prosseguir o cadastro, informe o email do produto!")
+                return
+            } else if(document.getElementById("quantidade").value == ''){
+                alert("Para prosseguir o cadastro, informe o fone do produto!")
+                return
+            }
+
+            const options = {
+                method: 'POST',
+                headers: {'content-type': 'Application/json'},
+                body: JSON.stringify(produtos)
+            }
+
+            fetch("http://localhost:3000/produtos", options)
+            .then(data => data.json())
+            .then(pro => console.log(pro))
+        }
+
+        function limpar(){
+            document.getElementById("nome").value = ''
+            document.getElementById("preco").value = ''
+            document.getElementById("quantidade").value = ''
+        }
+    </script>
 </body>
 </html>
