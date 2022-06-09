@@ -30,7 +30,7 @@ a{
 }
 
 li a{
-    color: white;
+    color: rgb(81, 169, 228);
     text-align: center;
     align-items: center;
     padding: 36px 30px;
@@ -40,6 +40,7 @@ li a{
 
 li a:hover:not(.active){
     background-color: darkblue;
+    color: white;
 }
 
 iframe{

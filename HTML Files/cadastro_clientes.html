@@ -7,6 +7,62 @@
     <title>Document</title>
 </head>
 <body>
-    Olá, mundo!
+    <div class="container-geral">
+        <div class="container">
+            <label for="nome">Nome</label>
+            <input id="nome" type="text" placeholder="Informe nome" />
+    
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Informe email" />
+    
+            <label for="fone">Fone</label>
+            <input id="fone" type="text" placeholder="Informe fone" />
+        </div>
+        <div class="btn">
+            <button onclick="salvar()">Salvar</button>
+            <button onclick="limpar()">Limpar Campos</button>
+        </div>
+    </div>
+
+    <script>
+        function salvar(){
+            const cliente = {
+                nome: "",
+                email: "",
+                fone: ""
+            }
+
+            cliente.nome = document.getElementById("nome").value
+            cliente.email = document.getElementById("email").value
+            cliente.fone = document.getElementById("fone").value
+
+            if(document.getElementById("nome").value == ''){
+                alert("Para prosseguir o cadastro, informe o nome do cliente!")
+                return
+            } else if(document.getElementById("email").value == ''){
+                alert("Para prosseguir o cadastro, informe o email do cliente!")
+                return
+            } else if(document.getElementById("fone").value == ''){
+                alert("Para prosseguir o cadastro, informe o fone do cliente!")
+                return
+            }
+
+            const options = {
+                method: 'POST',
+                headers: {'content-type': 'Application/json'},
+                body: JSON.stringify(cliente)
+            }
+
+            fetch("http://localhost:3000/clientes", options)
+            .then(data => data.json())
+            .then(cli => console.log(cli))
+        }
+
+        function limpar(){
+            document.getElementById("nome").value = ''
+            document.getElementById("email").value = ''
+            document.getElementById("fone").value = ''
+        }
+    </script>
 </body>
 </html>
