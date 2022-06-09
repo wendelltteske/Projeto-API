@@ -1,1 +1,0 @@
-Organização da página index.html, implementação do rodapé, criação do arquivo JSON e introdução ao CSS.
