@@ -1,4 +1,11 @@
 {
-   "clientes": [],
-   "produtos": [] 
+  "clientes": [
+    {
+      "nome": "Wendell",
+      "email": "wendellthomasteske@gmail.com",
+      "fone": "(47) 9 9263-2730",
+      "id": 1
+    }
+  ],
+  "produtos": []
 }
