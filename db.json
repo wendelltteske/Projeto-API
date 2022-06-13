@@ -2,17 +2,22 @@
   "clientes": [
     {
       "nome": "Wendell",
-      "email": "wendellthomasteske@gmail.com",
-      "fone": "(47) 9 9263-2730",
+      "email": "wendelltteske@gmail.com",
+      "fone": "(47) 9 9262-2730",
       "id": 1
+    },
+    {
+      "nome": "Thomas",
+      "email": "thomas@gmail.com",
+      "fone": "(00) 0 0000-0000",
+      "id": 2
+    },
+    {
+      "nome": "Teske",
+      "email": "teske@gmail.com",
+      "fone": "(11) 1 1111-1111",
+      "id": 3
     }
   ],
-  "produtos": [
-    {
-      "nome": "Picanha",
-      "preco": "80",
-      "quantidade": "10",
-      "id": 1
-    }
-  ]
+  "produtos": []
 }

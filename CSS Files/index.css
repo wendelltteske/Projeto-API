@@ -16,7 +16,6 @@ ul{
     list-style: none;
     height: 10vh;
     padding: 0;
-    
     background-color: rgb(49, 46, 46);
 }
 
@@ -39,7 +38,7 @@ li a{
 }
 
 li a:hover:not(.active){
-    background-color: darkblue;
+    background-color: rgb(13, 13, 83);
     color: white;
 }
 
@@ -51,7 +50,7 @@ iframe{
 
 .rodape{
     position: absolute;
-    background-color: gray;
+    background-color: rgb(63, 62, 62);
     color: white;
     width: 100%;
     height: 10%;
