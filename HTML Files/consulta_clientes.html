@@ -5,38 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/consulta_clientes.css" />
 </head>
 <body>
-    <button onclick="consultar()">Consultar</button>
-    <table>
-        <thead>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Fone</th>
-        </thead>
-        <tbody>
+    <h1>CONSULTAR CLIENTES</h1>
+    <hr> <br>
+    <div class="all">
+        <div class="btn">
+            <button onclick="consultar()">Consultar</button>
+        </div>
+        <table>
+            <thead>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Fone</th>
+            </thead>
+            <tbody>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
     <script>
-        function consultar(){
+        function consultar() {
             fetch('http://localhost:3000/clientes')
-            .then(consul => consul.json())
-            .then(consulta => {
-                var linhas = ""
-                for(let i = 0; i < consulta.length; i++){
-                    linhas += 
-                    `<tr>
+                .then(consul => consul.json())
+                .then(consulta => {
+                    var linhas = ""
+                    for (let i = 0; i < consulta.length; i++) {
+                        linhas +=
+                            `<tr>
                     <td> ${consulta[i].id} </td>
                     <td> ${consulta[i].nome} </td>
                     <td> ${consulta[i].email} </td>
                     <td> ${consulta[i].fone} </td>
                     </tr>`
-                }
-                document.getElementsByTagName("tbody")[0].innerHTML = linhas
-            })
+                    }
+                    document.getElementsByTagName("tbody")[0].innerHTML = linhas
+                })
         }
     </script>
 </body>
+
 </html>
