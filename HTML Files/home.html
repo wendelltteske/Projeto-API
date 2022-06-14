@@ -1,12 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/CSS Files/home.css" />
 </head>
+
 <body>
-    <h1>Olá, mundo!</h1>
+    <div class="tittle">
+        <h1>HOME</h1>
+    </div>
+    <div class="container-cont">
+        <div class="cod_cliente">
+            <label>Digite um código de cliente</label>
+            <input type="number" id="idcliente" />
+        </div>
+        <div class="btn">
+            <button onclick="consultar()">Consultar</button>
+            <button onclick="limpar()">Limpar Campo</button>
+            <button onclick="change()">Alterar dados</button>
+            <button onclick="excluir()">Excluir</button>
+        </div>
+        <label id="msg"></label>
+    </div>
+    <hr>
+    <div class="container-alter">
+        <b>CONSULTAR DADOS</b>
+        <hr>
+        <label>Nome</label>
+        <input type="text" id="nome" />
+        <label>Email</label>
+        <input type="text" id="email" />
+        <label>Fone</label>
+        <input type="text" id="fone" />
+    </div>
+    <script>
+        function consultar() {
+            var idpesquisa = document.getElementById("idcliente").value
+            if (document.getElementById("idcliente").value == '') {
+                alert("Para consultar o cliente, informe o ID do mesmo!")
+                document.getElementById("idcliente").focus()
+                return
+            }
+
+
+            fetch(`http://localhost:3000/clientes/${idpesquisa}`)
+                .then(data => data.json())
+                .then(result => {
+                    document.getElementById("nome").value = result.nome
+                    document.getElementById("email").value = result.email
+                    document.getElementById("fone").value = result.fone
+                })
+        }
+
+        function change() {
+            const cliente = {
+                nome: "",
+                email: "",
+                fone: ""
+            }
+
+            cliente.nome = document.getElementById("nome").value
+            cliente.email = document.getElementById("email").value
+            cliente.fone = document.getElementById("fone").value
+
+            const options = {
+                method: 'PUT',
+                headers: { 'content-type': 'Application/json' },
+                body: JSON.stringify(cliente)
+            }
+
+            var idpesquisa = document.getElementById("idcliente").value
+            fetch(`http://localhost:3000/clientes/${idpesquisa}`, options)
+                .then(data => data.json())
+                .then(cli => alert('Cliente alterado com sucesso!'))
+        }
+
+        function excluir(){
+            var idpesquisa = document.getElementById("idcliente").value
+            fetch(`http://localhost:3000/clientes/${idpesquisa}`, { method: 'DELETE'})
+                .then(data => data.json())
+                .then(cli => alert('Cliente excluido com sucesso!'))
+        }
+
+        function limpar() {
+            document.getElementById("idcliente").value = ''
+            document.getElementById("nome").value = ''
+            document.getElementById("email").value = ''
+            document.getElementById("fone").value = ''
+        }
+    </script>
 </body>
+
 </html>
