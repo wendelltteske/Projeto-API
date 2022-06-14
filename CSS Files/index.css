@@ -19,6 +19,15 @@ ul{
     background-color: rgb(49, 46, 46);
 }
 
+.container-menu_links li a{
+    display: flex;
+}
+
+.material-icons{
+    font-size: 22px;
+    margin-right: 5px;
+}
+
 li{
     float: left;
     font-size: 25px;
@@ -38,8 +47,40 @@ li a{
 }
 
 li a:hover:not(.active){
-    background-color: rgb(13, 13, 83);
+    background-color: rgb(7, 7, 241);
     color: white;
+}
+
+li a:hover, .dropdown:hover .dropbtn{
+    background-color: rgb(13, 13, 83);
+}
+
+li.dropdown{
+    display: inline-block;
+}
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    margin-top: -8px;
+    width: 185px;
+    background-color: rgb(49, 46, 46);
+}
+
+.dropdown-content a{
+    color: white;
+    padding: 20px 30px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.dropdown-content a:hover{
+    background-color: white;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
 }
 
 iframe{

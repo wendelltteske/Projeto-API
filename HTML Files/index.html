@@ -5,22 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/CSS Files/index.css" />
 </head>
 <body>
     <ul class="container-menu">
         <div class="container-menu_links">
-            <li><a href="/HTML Files/home.html" target="centro">Home</a></li>
-            <li><a href="/HTML Files/cadastro_clientes.html" target="centro">C_Clientes</a></li>
-            <li><a href="/HTML Files/cadastro_produtos.html" target="centro">C_Produtos</a></li>
-            <li><a href="/HTML Files/consulta_clientes.html" target="centro">Con_Clientes</a></li>
-            <li><a href="/HTML Files/consulta_produtos.html" target="centro">Con_Produtos</a></li>
+            <li><a href="/HTML Files/home.html" target="centro"><i class="material-icons">home</i>Home</a></li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn"><i class="material-icons">add_box</i>Cadastro</a>
+                <div class="dropdown-content">
+                    <a href="/HTML Files/cadastro_clientes.html" target="centro">Clientes</a>
+                    <a href="/HTML Files/cadastro_produtos.html" target="centro">Produtos</a>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn"><i class="material-icons">pageview</i>Consulta</a>
+                <div class="dropdown-content">
+                    <a href="/HTML Files/consulta_clientes.html" target="centro">Clientes</a>
+                    <a href="/HTML Files/consulta_produtos.html" target="centro">Produtos</a>
+                </div>
+            </li>
         </div>
         <a href="/HTML Files/login.html" target="centro"></a>
         <button id="btao">Login</button>
     </ul>
 
-    <iframe src="/HTML Files/consulta_clientes.html" name="centro"></iframe>
+    <iframe src="/HTML Files/home.html" name="centro"></iframe>
 
     <div class="rodape">
         <p>Direitos Autorais reservados @Copyright. Feito por Wendell Thomas Teske</p>
