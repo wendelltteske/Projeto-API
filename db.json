@@ -7,17 +7,36 @@
       "id": 1
     },
     {
-      "nome": "Thomas",
-      "email": "thomas@gmail.com",
-      "fone": "(00) 0 0000-0000",
+      "nome": "Pedrão",
+      "email": "famoso.pedro@gmail.com",
+      "fone": "654",
       "id": 2
     },
     {
-      "nome": "Teske",
-      "email": "teske@gmail.com",
-      "fone": "(11) 1 1111-1111",
+      "nome": "José",
+      "email": "j@gmail.com",
+      "fone": "098",
       "id": 3
     }
   ],
-  "produtos": []
+  "produtos": [
+    {
+      "nome": "Picanha",
+      "preco": "80",
+      "quantidade": "10",
+      "id": 1
+    },
+    {
+      "nome": "Banana",
+      "preco": "7.50",
+      "quantidade": "3",
+      "id": 2
+    },
+    {
+      "nome": "Frango",
+      "preco": "13.47",
+      "quantidade": "12",
+      "id": 3
+    }
+  ]
 }

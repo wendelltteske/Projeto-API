@@ -7,6 +7,37 @@
     <title>Document</title>
 </head>
 <body>
-    Olá, mundo!
+    <h1>CONSULTAR PRODUTOS</h1>
+    <button onclick="consultar()">Consultar</button>
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        function consultar() {
+            fetch('http://localhost:3000/produtos')
+                .then(consul => consul.json())
+                .then(consulta => {
+                    var linhas = ""
+                    for (let i = 0; i < consulta.length; i++) {
+                        linhas +=
+                            `<tr>
+                    <td> ${consulta[i].id} </td>
+                    <td> ${consulta[i].nome} </td>
+                    <td> ${consulta[i].preco} </td>
+                    <td> ${consulta[i].quantidade} </td>
+                    </tr>`
+                    }
+                    document.getElementsByTagName("tbody")[0].innerHTML = linhas
+                })
+        }
+    </script>
 </body>
 </html>
